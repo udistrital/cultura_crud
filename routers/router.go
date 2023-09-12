@@ -8,10 +8,9 @@
 package routers
 
 import (
-	//"github.com/udistrital/cultura_crud/controllers"
-	"cultura_crud/controllers"
+	"github.com/udistrital/cultura_crud/controllers"
 
-	beego "github.com/beego/beego/v2/server/web"
+	beego "github.com/astaxie/beego"
 )
 
 func init() {

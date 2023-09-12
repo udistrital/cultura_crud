@@ -4,13 +4,13 @@ import (
 	"encoding/json"
 	"errors"
 
-	//"github.com/udistrital/cultura_crud/models"
-	"cultura_crud/models"
+	"github.com/udistrital/cultura_crud/models"
+	//"cultura_crud/models"
 	"strconv"
 	"strings"
 
+	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/logs"
-	beego "github.com/beego/beego/v2/server/web"
 )
 
 // ActividadGrupoCulturalController operations for ActividadGrupoCultural

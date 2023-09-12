@@ -6,8 +6,8 @@ import (
 	"github.com/astaxie/beego/plugins/cors"
 	_ "github.com/lib/pq"
 
-	//_ "github.com/udistrital/cultura_crud/routers"
-	_ "cultura_crud/routers"
+	_ "github.com/udistrital/cultura_crud/routers"
+	//"cultura_crud/routers"
 
 	apistatus "github.com/udistrital/utils_oas/apiStatusLib"
 	"github.com/udistrital/utils_oas/customerrorv2"

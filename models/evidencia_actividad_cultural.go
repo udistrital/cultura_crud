@@ -6,7 +6,7 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/beego/beego/v2/client/orm"
+	"github.com/astaxie/beego/orm"
 )
 
 type EvidenciaActividadCultural struct {

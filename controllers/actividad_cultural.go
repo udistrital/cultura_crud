@@ -3,15 +3,12 @@ package controllers
 import (
 	"encoding/json"
 	"errors"
-
-	//"github.com/udistrital/cultura_crud/models"
-	"cultura_crud/models"
 	"strconv"
 	"strings"
 
-	beego "github.com/beego/beego/v2/server/web"
-
+	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/logs"
+	"github.com/udistrital/cultura_crud/models"
 )
 
 // ActividadCulturalController operations for ActividadCultural
