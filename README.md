@@ -17,7 +17,7 @@ API CRUD para la gestión de información de las actividades culturales realizad
 # parametros de api
 CULTURA_CRUD_HTTP_PORT=[Puerto de exposición del API]
 CULTURA_CRUD_RUN_MODE=[Modo de ejecución del API]
-# paramametros de bd
+# paramametros de bd #
 CULTURA_CRUD_PGUSER=[Usuario de BD]
 CULTURA_CRUD_PGPASS=[Contraseña del usaurio de BD]
 CULTURA_CRUD_PGHOST=[URL, Dominio o EndPoint de la BD]

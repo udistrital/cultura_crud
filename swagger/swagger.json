@@ -1,0 +1,1074 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "beego Test API",
+        "description": "beego has a very cool tools to autogenerate documents for your API",
+        "version": "1.0.0",
+        "termsOfService": "http://beego.me/",
+        "contact": {
+            "email": "astaxie@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "basePath": "/v1",
+    "paths": {
+        "/actividad_cultural/": {
+            "get": {
+                "tags": [
+                    "actividad_cultural"
+                ],
+                "description": "get ActividadCultural",
+                "operationId": "ActividadCulturalController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.ActividadCultural"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "actividad_cultural"
+                ],
+                "description": "create ActividadCultural",
+                "operationId": "ActividadCulturalController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for ActividadCultural content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.ActividadCultural"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.ActividadCultural"
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            }
+        },
+        "/actividad_cultural/{id}": {
+            "get": {
+                "tags": [
+                    "actividad_cultural"
+                ],
+                "description": "get ActividadCultural by id",
+                "operationId": "ActividadCulturalController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.ActividadCultural"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "actividad_cultural"
+                ],
+                "description": "update the ActividadCultural",
+                "operationId": "ActividadCulturalController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for ActividadCultural content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.ActividadCultural"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.ActividadCultural"
+                        }
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "actividad_cultural"
+                ],
+                "description": "delete the ActividadCultural",
+                "operationId": "ActividadCulturalController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            }
+        },
+        "/actividad_grupo_cultural/": {
+            "get": {
+                "tags": [
+                    "actividad_grupo_cultural"
+                ],
+                "description": "get ActividadGrupoCultural",
+                "operationId": "ActividadGrupoCulturalController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.ActividadGrupoCultural"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "actividad_grupo_cultural"
+                ],
+                "description": "create ActividadGrupoCultural",
+                "operationId": "ActividadGrupoCulturalController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for ActividadGrupoCultural content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.ActividadGrupoCultural"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.ActividadGrupoCultural"
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            }
+        },
+        "/actividad_grupo_cultural/{id}": {
+            "get": {
+                "tags": [
+                    "actividad_grupo_cultural"
+                ],
+                "description": "get ActividadGrupoCultural by id",
+                "operationId": "ActividadGrupoCulturalController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.ActividadGrupoCultural"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "actividad_grupo_cultural"
+                ],
+                "description": "update the ActividadGrupoCultural",
+                "operationId": "ActividadGrupoCulturalController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for ActividadGrupoCultural content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.ActividadGrupoCultural"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.ActividadGrupoCultural"
+                        }
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "actividad_grupo_cultural"
+                ],
+                "description": "delete the ActividadGrupoCultural",
+                "operationId": "ActividadGrupoCulturalController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            }
+        },
+        "/evidencia_actividad_cultural/": {
+            "get": {
+                "tags": [
+                    "evidencia_actividad_cultural"
+                ],
+                "description": "get EvidenciaActividadCultural",
+                "operationId": "EvidenciaActividadCulturalController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.EvidenciaActividadCultural"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "evidencia_actividad_cultural"
+                ],
+                "description": "create EvidenciaActividadCultural",
+                "operationId": "EvidenciaActividadCulturalController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for EvidenciaActividadCultural content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.EvidenciaActividadCultural"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.EvidenciaActividadCultural"
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            }
+        },
+        "/evidencia_actividad_cultural/{id}": {
+            "get": {
+                "tags": [
+                    "evidencia_actividad_cultural"
+                ],
+                "description": "get EvidenciaActividadCultural by id",
+                "operationId": "EvidenciaActividadCulturalController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.EvidenciaActividadCultural"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "evidencia_actividad_cultural"
+                ],
+                "description": "update the EvidenciaActividadCultural",
+                "operationId": "EvidenciaActividadCulturalController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for EvidenciaActividadCultural content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.EvidenciaActividadCultural"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.EvidenciaActividadCultural"
+                        }
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "evidencia_actividad_cultural"
+                ],
+                "description": "delete the EvidenciaActividadCultural",
+                "operationId": "EvidenciaActividadCulturalController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            }
+        },
+        "/grupo_cultural/": {
+            "get": {
+                "tags": [
+                    "grupo_cultural"
+                ],
+                "description": "get GrupoCultural",
+                "operationId": "GrupoCulturalController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.GrupoCultural"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "grupo_cultural"
+                ],
+                "description": "create GrupoCultural",
+                "operationId": "GrupoCulturalController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for GrupoCultural content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.GrupoCultural"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.GrupoCultural"
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            }
+        },
+        "/grupo_cultural/{id}": {
+            "get": {
+                "tags": [
+                    "grupo_cultural"
+                ],
+                "description": "get GrupoCultural by id",
+                "operationId": "GrupoCulturalController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.GrupoCultural"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "grupo_cultural"
+                ],
+                "description": "update the GrupoCultural",
+                "operationId": "GrupoCulturalController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for GrupoCultural content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.GrupoCultural"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.GrupoCultural"
+                        }
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "grupo_cultural"
+                ],
+                "description": "delete the GrupoCultural",
+                "operationId": "GrupoCulturalController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            }
+        },
+        "/horarios_grupo_cultural/": {
+            "get": {
+                "tags": [
+                    "horarios_grupo_cultural"
+                ],
+                "description": "get HorariosGrupoCultural",
+                "operationId": "HorariosGrupoCulturalController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.HorariosGrupoCultural"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "horarios_grupo_cultural"
+                ],
+                "description": "create HorariosGrupoCultural",
+                "operationId": "HorariosGrupoCulturalController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for HorariosGrupoCultural content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.HorariosGrupoCultural"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.HorariosGrupoCultural"
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            }
+        },
+        "/horarios_grupo_cultural/{id}": {
+            "get": {
+                "tags": [
+                    "horarios_grupo_cultural"
+                ],
+                "description": "get HorariosGrupoCultural by id",
+                "operationId": "HorariosGrupoCulturalController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.HorariosGrupoCultural"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "horarios_grupo_cultural"
+                ],
+                "description": "update the HorariosGrupoCultural",
+                "operationId": "HorariosGrupoCulturalController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for HorariosGrupoCultural content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.HorariosGrupoCultural"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.HorariosGrupoCultural"
+                        }
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "horarios_grupo_cultural"
+                ],
+                "description": "delete the HorariosGrupoCultural",
+                "operationId": "HorariosGrupoCulturalController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "models.ActividadCultural": {
+            "title": "ActividadCultural",
+            "type": "object",
+            "properties": {
+                "Descripcion": {
+                    "type": "string"
+                },
+                "Estado": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "FechaCreacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "FechaFin": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "FechaInicio": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "FechaModificacion": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "IdCalendario": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "LugarActividad": {
+                    "type": "string"
+                },
+                "NecesitaInscripcion": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Nombre": {
+                    "type": "string"
+                },
+                "PoseeMayorInformacion": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "UsuarioCreador": {
+                    "type": "string"
+                },
+                "VersionRecord": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "models.ActividadGrupoCultural": {
+            "title": "ActividadGrupoCultural",
+            "type": "object",
+            "properties": {
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "IdActivdadCultural": {
+                    "$ref": "#/definitions/models.ActividadCultural"
+                },
+                "IdGrupoCultural": {
+                    "$ref": "#/definitions/models.GrupoCultural"
+                }
+            }
+        },
+        "models.EvidenciaActividadCultural": {
+            "title": "EvidenciaActividadCultural",
+            "type": "object",
+            "properties": {
+                "CategoriaEvidencia": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "ContenidoEvidencia": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "IdActividadCultural": {
+                    "$ref": "#/definitions/models.ActividadCultural"
+                },
+                "VersionRecord": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "models.GrupoCultural": {
+            "title": "GrupoCultural",
+            "type": "object",
+            "properties": {
+                "Descripcion": {
+                    "type": "string"
+                },
+                "EMail": {
+                    "type": "string"
+                },
+                "EnlaceInscripcion": {
+                    "type": "string"
+                },
+                "Estado": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "FechaFinInscripcion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "FechaInicioInscripcion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Imagen": {
+                    "type": "string"
+                },
+                "NecesitaInscripcion": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Nombre": {
+                    "type": "string"
+                },
+                "VersionRecord": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "models.HorariosGrupoCultural": {
+            "title": "HorariosGrupoCultural",
+            "type": "object",
+            "properties": {
+                "FechaReunion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "IdGrupoCultural": {
+                    "$ref": "#/definitions/models.GrupoCultural"
+                },
+                "LugarReunion": {
+                    "type": "string"
+                },
+                "VersionRecord": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "actividad_cultural",
+            "description": "ActividadCulturalController operations for ActividadCultural\n"
+        },
+        {
+            "name": "actividad_grupo_cultural",
+            "description": "ActividadGrupoCulturalController operations for ActividadGrupoCultural\n"
+        },
+        {
+            "name": "grupo_cultural",
+            "description": "GrupoCulturalController operations for GrupoCultural\n"
+        },
+        {
+            "name": "evidencia_actividad_cultural",
+            "description": "EvidenciaActividadCulturalController operations for EvidenciaActividadCultural\n"
+        },
+        {
+            "name": "horarios_grupo_cultural",
+            "description": "HorariosGrupoCulturalController operations for HorariosGrupoCultural\n"
+        }
+    ]
+}
