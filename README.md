@@ -26,7 +26,7 @@ CULTURA_CRUD_PGDB=[Nombre de Base de Datos]
 PARAMETROCULTURA_CRUD_PGSCHEMA=[Nombre del Esquema de Base de Datos]
 ```
 
-**NOTA:** Las variables se pueden ver en el fichero conf/app.conf y están identificadas con `CULTURA_CRUD_...`
+**NOTA:** Las variables se pueden ver en el fichero conf/app.conf y están identificadas  con `CULTURA_CRUD_...`
 
 ### Ejecución del Proyecto
 
