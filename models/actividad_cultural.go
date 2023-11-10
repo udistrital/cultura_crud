@@ -16,7 +16,7 @@ type ActividadCultural struct {
 	Nombre                string    `orm:"column(nombre)"`
 	Descripcion           string    `orm:"column(descripcion)"`
 	Estado                int       `orm:"column(estado)"`
-	TipoActividad         string    `orm:"column(tipo_actividad)"`
+	IdTipoActividad       int       `orm:"column(id_tipo_actividad)"`
 	FechaCreacion         time.Time `orm:"column(fecha_creacion);type(date)"`
 	FechaInicio           time.Time `orm:"column(fecha_inicio);type(date)"`
 	FechaFin              time.Time `orm:"column(fecha_fin);type(date)"`

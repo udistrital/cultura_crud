@@ -3,3 +3,8 @@ DROP TABLE IF EXISTS cultura.actividad_grupo_cultural CASCADE;
 DROP TABLE IF EXISTS cultura.evidencia_actividad_cultural CASCADE;
 DROP TABLE IF EXISTS cultura.grupo_cultural CASCADE;
 DROP TABLE IF EXISTS cultura.horarios_grupo_cultural CASCADE;
+DROP SEQUENCE IF EXISTS cultura.actividad_cultural_id_actividad_cultural_seq;
+DROP SEQUENCE IF EXISTS cultura.actividad_grupo_cultural_id_actividad_grupo_cultural_seq;
+DROP SEQUENCE IF EXISTS cultura.evidencia_actividad_cultural_id_evidencia_actividad_cultural_seq;
+DROP SEQUENCE IF EXISTS cultura.grupo_cultural_id_grupo_cultural_seq;
+DROP SEQUENCE IF EXISTS cultura.horarios_grupo_cultural_id_horario_grupo_cultural_seq;

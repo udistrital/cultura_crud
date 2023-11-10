@@ -11,7 +11,7 @@ CREATE TABLE cultura.actividad_cultural
 	nombre varchar(50) NOT NULL,
 	descripcion varchar(250) NOT NULL,
 	estado integer NOT NULL,
-	tipo_actividad varchar(50) NOT NULL,
+	id_tipo_actividad integer NOT NULL,
 	fecha_creacion date NOT NULL,
 	fecha_inicio date NOT NULL,
 	fecha_fin date NOT NULL,
@@ -126,17 +126,17 @@ ALTER TABLE cultura.horarios_grupo_cultural ADD CONSTRAINT FK_HorarioGrupoCultur
 
 /* Create Table Comments, Sequences for Autonumber Columns */
 
-CREATE SEQUENCE actividad_cultural_id_actividad_cultural_seq INCREMENT 1 START 1
+CREATE SEQUENCE cultura.actividad_cultural_id_actividad_cultural_seq INCREMENT 1 START 1
 ;
 
-CREATE SEQUENCE actividad_grupo_cultural_id_actividad_grupo_cultural_seq INCREMENT 1 START 1
+CREATE SEQUENCE cultura.actividad_grupo_cultural_id_actividad_grupo_cultural_seq INCREMENT 1 START 1
 ;
 
-CREATE SEQUENCE evidencia_actividad_cultural_id_evidencia_actividad_cultural_seq INCREMENT 1 START 1
+CREATE SEQUENCE cultura.evidencia_actividad_cultural_id_evidencia_actividad_cultural_seq INCREMENT 1 START 1
 ;
 
-CREATE SEQUENCE grupo_cultural_id_grupo_cultural_seq INCREMENT 1 START 1
+CREATE SEQUENCE cultura.grupo_cultural_id_grupo_cultural_seq INCREMENT 1 START 1
 ;
 
-CREATE SEQUENCE horarios_grupo_cultural_id_horario_grupo_cultural_seq INCREMENT 1 START 1
+CREATE SEQUENCE cultura.horarios_grupo_cultural_id_horario_grupo_cultural_seq INCREMENT 1 START 1
 ;
