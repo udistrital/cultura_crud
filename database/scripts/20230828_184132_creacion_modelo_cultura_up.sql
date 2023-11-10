@@ -12,10 +12,10 @@ CREATE TABLE cultura.actividad_cultural
 	descripcion varchar(250) NOT NULL,
 	estado integer NOT NULL,
 	id_tipo_actividad integer NOT NULL,
-	fecha_creacion date NOT NULL,
-	fecha_inicio date NOT NULL,
-	fecha_fin date NOT NULL,
-	fecha_modificacion date NULL,
+	fecha_creacion timestamp NOT NULL,
+	fecha_inicio timestamp NOT NULL,
+	fecha_fin timestamp NOT NULL,
+	fecha_modificacion timestamp NULL,
 	lugar_actividad varchar(50) NOT NULL,
 	necesita_inscripcion integer NOT NULL,
 	posee_mayor_informacion integer NOT NULL,
@@ -50,8 +50,8 @@ CREATE TABLE cultura.grupo_cultural
 	imagen varchar(300) NOT NULL,
 	necesita_inscripcion integer NOT NULL,
 	enlace_inscripcion varchar(300) NULL,
-	fecha_inicio_inscripcion date NULL,
-	fecha_fin_inscripcion date NULL
+	fecha_inicio_inscripcion timestamp NULL,
+	fecha_fin_inscripcion timestamp NULL
 )
 ;
 
