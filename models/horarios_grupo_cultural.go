@@ -15,7 +15,6 @@ type HorariosGrupoCultural struct {
 	IdGrupoCultural *GrupoCultural `orm:"column(id_grupo_cultural);rel(fk)"`
 	FechaReunion    time.Time      `orm:"column(fecha_reunion);type(date)"`
 	LugarReunion    string         `orm:"column(lugar_reunion)"`
-	VersionRecord   int            `orm:"column(version_record)"`
 }
 
 func (t *HorariosGrupoCultural) TableName() string {

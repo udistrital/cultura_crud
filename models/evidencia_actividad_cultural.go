@@ -14,7 +14,6 @@ type EvidenciaActividadCultural struct {
 	IdActividadCultural *ActividadCultural `orm:"column(id_actividad_cultural);rel(fk)"`
 	CategoriaEvidencia  int                `orm:"column(categoria_evidencia)"`
 	ContenidoEvidencia  string             `orm:"column(contenido_evidencia)"`
-	//VersionRecord       int                `orm:"column(version_record)"`
 }
 
 func (t *EvidenciaActividadCultural) TableName() string {
