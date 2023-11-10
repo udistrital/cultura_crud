@@ -19,12 +19,12 @@ type ActividadCultural struct {
 	FechaCreacion         time.Time `orm:"column(fecha_creacion);type(date)"`
 	FechaInicio           time.Time `orm:"column(fecha_inicio);type(date)"`
 	FechaFin              time.Time `orm:"column(fecha_fin);type(date)"`
-	FechaModificacion     string    `orm:"column(fecha_modificacion);null"`
+	FechaModificacion     time.Time `orm:"column(fecha_modificacion);null"`
 	LugarActividad        string    `orm:"column(lugar_actividad)"`
 	NecesitaInscripcion   int       `orm:"column(necesita_inscripcion)"`
 	PoseeMayorInformacion int       `orm:"column(posee_mayor_informacion)"`
 	UsuarioCreador        string    `orm:"column(usuario_creador)"`
-	VersionRecord         int       `orm:"column(version_record)"`
+	//VersionRecord         int       `orm:"column(version_record)"`
 }
 
 func (t *ActividadCultural) TableName() string {

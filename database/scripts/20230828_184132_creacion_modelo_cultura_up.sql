@@ -11,15 +11,15 @@ CREATE TABLE cultura.actividad_cultural
 	nombre varchar(50) NOT NULL,
 	descripcion varchar(250) NOT NULL,
 	estado integer NOT NULL,
+	tipo_actividad varchar(50) NOT NULL,
 	fecha_creacion date NOT NULL,
 	fecha_inicio date NOT NULL,
 	fecha_fin date NOT NULL,
-	fecha_modificacion text NULL,
+	fecha_modificacion date NULL,
 	lugar_actividad varchar(50) NOT NULL,
 	necesita_inscripcion integer NOT NULL,
 	posee_mayor_informacion integer NOT NULL,
-	usuario_creador varchar(50) NOT NULL,
-	version_record integer NOT NULL
+	usuario_creador varchar(50) NOT NULL
 )
 ;
 
@@ -36,14 +36,13 @@ CREATE TABLE cultura.evidencia_actividad_cultural
 	id_evidencia_actividad_cultural integer NOT NULL   DEFAULT NEXTVAL(('"evidencia_actividad_cultural_id_evidencia_actividad_cultural_seq"'::text)::regclass),
 	id_actividad_cultural integer NOT NULL,
 	categoria_evidencia integer NOT NULL,
-	contenido_evidencia varchar(300) NOT NULL,
-	version_record integer NOT NULL
+	contenido_evidencia varchar(300) NOT NULL
 )
 ;
 
 CREATE TABLE cultura.grupo_cultural
 (
-	Id_grupo_cultural integer NOT NULL   DEFAULT NEXTVAL(('"grupo_cultural_id_grupo_cultural_seq"'::text)::regclass),
+	id_grupo_cultural integer NOT NULL   DEFAULT NEXTVAL(('"grupo_cultural_id_grupo_cultural_seq"'::text)::regclass),
 	nombre varchar(50) NOT NULL,
 	estado integer NOT NULL,
 	descripcion varchar(250) NOT NULL,
@@ -52,8 +51,7 @@ CREATE TABLE cultura.grupo_cultural
 	necesita_inscripcion integer NOT NULL,
 	enlace_inscripcion varchar(300) NULL,
 	fecha_inicio_inscripcion date NULL,
-	fecha_fin_inscripcion date NULL,
-	version_record integer NOT NULL
+	fecha_fin_inscripcion date NULL
 )
 ;
 
@@ -62,8 +60,7 @@ CREATE TABLE cultura.horarios_grupo_cultural
 	id_horario_grupo_cultural integer NOT NULL   DEFAULT NEXTVAL(('"horarios_grupo_cultural_id_horario_grupo_cultural_seq"'::text)::regclass),
 	id_grupo_cultural integer NOT NULL,
 	fecha_reunion date NOT NULL,
-	lugar_reunion varchar(50) NOT NULL,
-	version_record integer NOT NULL
+	lugar_reunion varchar(50) NOT NULL
 )
 ;
 
