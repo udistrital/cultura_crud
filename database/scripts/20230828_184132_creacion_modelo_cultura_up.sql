@@ -59,7 +59,7 @@ CREATE TABLE cultura.horarios_grupo_cultural
 (
 	id_horario_grupo_cultural integer NOT NULL   DEFAULT NEXTVAL(('"horarios_grupo_cultural_id_horario_grupo_cultural_seq"'::text)::regclass),
 	id_grupo_cultural integer NOT NULL,
-	fecha_reunion date NOT NULL,
+	fecha_reunion timestamp NOT NULL,
 	lugar_reunion varchar(50) NOT NULL
 )
 ;
