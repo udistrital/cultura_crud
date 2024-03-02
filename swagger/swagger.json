@@ -1021,9 +1021,11 @@
             "title": "HorariosGrupoCultural",
             "type": "object",
             "properties": {
-                "FechaReunion": {
-                    "type": "string",
-                    "format": "datetime"
+                "DiaReunion": {
+                    "type": "string"
+                },
+                "HoraReunion": {
+                    "type": "string"
                 },
                 "Id": {
                     "type": "integer",
