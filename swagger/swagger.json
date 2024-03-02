@@ -906,13 +906,18 @@
                     "format": "datetime"
                 },
                 "FechaModificacion": {
-                    "type": "string"
+                    "type": "string",
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
                     "format": "int64"
                 },
                 "IdCalendario": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "IdTipoActividad": {
                     "type": "integer",
                     "format": "int64"
                 },
@@ -932,10 +937,6 @@
                 },
                 "UsuarioCreador": {
                     "type": "string"
-                },
-                "VersionRecord": {
-                    "type": "integer",
-                    "format": "int64"
                 }
             }
         },
@@ -972,10 +973,6 @@
                 },
                 "IdActividadCultural": {
                     "$ref": "#/definitions/models.ActividadCultural"
-                },
-                "VersionRecord": {
-                    "type": "integer",
-                    "format": "int64"
                 }
             }
         },
@@ -1017,10 +1014,6 @@
                 },
                 "Nombre": {
                     "type": "string"
-                },
-                "VersionRecord": {
-                    "type": "integer",
-                    "format": "int64"
                 }
             }
         },
@@ -1041,10 +1034,6 @@
                 },
                 "LugarReunion": {
                     "type": "string"
-                },
-                "VersionRecord": {
-                    "type": "integer",
-                    "format": "int64"
                 }
             }
         }

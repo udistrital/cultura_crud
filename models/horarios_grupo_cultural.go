@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
-	"time"
 
 	"github.com/astaxie/beego/orm"
 )
@@ -13,8 +12,9 @@ import (
 type HorariosGrupoCultural struct {
 	Id              int            `orm:"column(id_horario_grupo_cultural);pk;auto"`
 	IdGrupoCultural *GrupoCultural `orm:"column(id_grupo_cultural);rel(fk)"`
-	FechaReunion    time.Time      `orm:"column(fecha_reunion);type(date)"`
 	LugarReunion    string         `orm:"column(lugar_reunion)"`
+	DiaReunion      string         `orm:"column(dia_reunion)"`
+	HoraReunion     string         `orm:"column(hora_reunion)"`
 }
 
 func (t *HorariosGrupoCultural) TableName() string {
