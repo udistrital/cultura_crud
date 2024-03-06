@@ -889,6 +889,12 @@
                 "Descripcion": {
                     "type": "string"
                 },
+                "EnlaceInscripcion": {
+                    "type": "string"
+                },
+                "EnlaceMayorInfo": {
+                    "type": "string"
+                },
                 "Estado": {
                     "type": "integer",
                     "format": "int64"
@@ -913,13 +919,8 @@
                     "type": "integer",
                     "format": "int64"
                 },
-                "IdCalendario": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "IdTipoActividad": {
-                    "type": "integer",
-                    "format": "int64"
+                "Imagen": {
+                    "type": "string"
                 },
                 "LugarActividad": {
                     "type": "string"
@@ -931,12 +932,13 @@
                 "Nombre": {
                     "type": "string"
                 },
-                "PoseeMayorInformacion": {
+                "PoseeMayorInfo": {
                     "type": "integer",
                     "format": "int64"
                 },
-                "UsuarioCreador": {
-                    "type": "string"
+                "TipoActividad": {
+                    "type": "integer",
+                    "format": "int64"
                 }
             }
         },
