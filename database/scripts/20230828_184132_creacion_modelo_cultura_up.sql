@@ -7,19 +7,21 @@ CREATE SCHEMA cultura;
 CREATE TABLE cultura.actividad_cultural
 (
 	id_actividad_cultural integer NOT NULL   DEFAULT NEXTVAL(('"actividad_cultural_id_actividad_cultural_seq"'::text)::regclass),
-	id_calendario integer NOT NULL,
-	nombre varchar(50) NOT NULL,
-	descripcion varchar(250) NOT NULL,
+	nombre varchar(100) NOT NULL,
+	descripcion varchar(300) NOT NULL,
 	estado integer NOT NULL,
-	id_tipo_actividad integer NOT NULL,
-	fecha_creacion timestamp NOT NULL,
+	tipo_actividad integer NOT NULL,
 	fecha_inicio timestamp NOT NULL,
 	fecha_fin timestamp NOT NULL,
-	fecha_modificacion timestamp NULL,
-	lugar_actividad varchar(50) NOT NULL,
+	lugar varchar(50) NOT NULL,
 	necesita_inscripcion integer NOT NULL,
-	posee_mayor_informacion integer NOT NULL,
-	usuario_creador varchar(50) NOT NULL
+	enlace_inscripcion varchar(300) NOT NULL,
+	posee_mayor_info integer NOT NULL,
+	enlace_mayor_info varchar(300) NOT NULL,
+	imagen varchar(300) NOT NULL,
+	fecha_creacion timestamp NOT NULL, 
+	fecha_modificacion timestamp NULL,
+	usuario_registra varchar(50) NOT NULL
 )
 ;
 

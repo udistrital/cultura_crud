@@ -11,20 +11,21 @@ import (
 )
 
 type ActividadCultural struct {
-	Id                    int       `orm:"column(id_actividad_cultural);pk;auto"`
-	IdCalendario          int       `orm:"column(id_calendario)"`
-	Nombre                string    `orm:"column(nombre)"`
-	Descripcion           string    `orm:"column(descripcion)"`
-	Estado                int       `orm:"column(estado)"`
-	IdTipoActividad       int       `orm:"column(id_tipo_actividad)"`
-	FechaCreacion         time.Time `orm:"column(fecha_creacion);type(date)"`
-	FechaInicio           time.Time `orm:"column(fecha_inicio);type(date)"`
-	FechaFin              time.Time `orm:"column(fecha_fin);type(date)"`
-	FechaModificacion     time.Time `orm:"column(fecha_modificacion);null"`
-	LugarActividad        string    `orm:"column(lugar_actividad)"`
-	NecesitaInscripcion   int       `orm:"column(necesita_inscripcion)"`
-	PoseeMayorInformacion int       `orm:"column(posee_mayor_informacion)"`
-	UsuarioCreador        string    `orm:"column(usuario_creador)"`
+	Id                  int       `orm:"column(id_actividad_cultural);pk;auto"`
+	Nombre              string    `orm:"column(nombre)"`
+	Descripcion         string    `orm:"column(descripcion)"`
+	Estado              int       `orm:"column(estado)"`
+	TipoActividad       int       `orm:"column(tipo_actividad)"`
+	FechaInicio         time.Time `orm:"column(fecha_inicio);type(date)"`
+	FechaFin            time.Time `orm:"column(fecha_fin);type(date)"`
+	LugarActividad      string    `orm:"column(lugar_actividad)"`
+	NecesitaInscripcion int       `orm:"column(necesita_inscripcion)"`
+	EnlaceInscripcion   string    `orm:"column(enlace_inscripcion)"`
+	PoseeMayorInfo      int       `orm:"column(posee_mayor_info)"`
+	EnlaceMayorInfo     string    `orm:"column(enlace_mayor_info)"`
+	Imagen              string    `orm:"column(imagen)"`
+	FechaCreacion       time.Time `orm:"column(fecha_creacion);type(date)"`
+	FechaModificacion   time.Time `orm:"column(fecha_modificacion);type(date);null"`
 }
 
 func (t *ActividadCultural) TableName() string {
