@@ -22,10 +22,11 @@ type ActividadCultural struct {
 	NecesitaInscripcion int       `orm:"column(necesita_inscripcion)"`
 	EnlaceInscripcion   string    `orm:"column(enlace_inscripcion)"`
 	PoseeMayorInfo      int       `orm:"column(posee_mayor_info)"`
-	EnlaceMayorInfo     string    `orm:"column(enlace_mayor_info)"`
+	EnlaceMayorInfo     string    `orm:"column(enlace_mayor_info);null"`
 	Imagen              string    `orm:"column(imagen)"`
 	FechaCreacion       time.Time `orm:"column(fecha_creacion);type(date)"`
 	FechaModificacion   time.Time `orm:"column(fecha_modificacion);type(date);null"`
+	usuario_registra    string    `orm:"column(usuario_registra)"`
 }
 
 func (t *ActividadCultural) TableName() string {

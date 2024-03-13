@@ -939,6 +939,9 @@
                 "TipoActividad": {
                     "type": "integer",
                     "format": "int64"
+                },
+                "UsuarioRegistra": {
+                    "type": "string"
                 }
             }
         },

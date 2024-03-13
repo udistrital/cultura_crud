@@ -17,7 +17,7 @@ CREATE TABLE cultura.actividad_cultural
 	necesita_inscripcion integer NOT NULL,
 	enlace_inscripcion varchar(300) NOT NULL,
 	posee_mayor_info integer NOT NULL,
-	enlace_mayor_info varchar(300) NOT NULL,
+	enlace_mayor_info varchar(300) NULL,
 	imagen varchar(300) NOT NULL,
 	fecha_creacion timestamp NOT NULL, 
 	fecha_modificacion timestamp NULL,
