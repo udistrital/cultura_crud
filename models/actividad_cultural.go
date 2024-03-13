@@ -26,7 +26,7 @@ type ActividadCultural struct {
 	Imagen              string    `orm:"column(imagen)"`
 	FechaCreacion       time.Time `orm:"column(fecha_creacion);type(date)"`
 	FechaModificacion   time.Time `orm:"column(fecha_modificacion);type(date);null"`
-	usuario_registra    string    `orm:"column(usuario_registra)"`
+	UsuarioRegistra     string    `orm:"column(usuario_registra)"`
 }
 
 func (t *ActividadCultural) TableName() string {
