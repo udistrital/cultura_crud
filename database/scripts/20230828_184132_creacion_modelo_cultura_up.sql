@@ -11,14 +11,14 @@ CREATE TABLE cultura.actividad_cultural
 	descripcion varchar(300) NOT NULL,
 	estado integer NOT NULL,
 	tipo_actividad integer NOT NULL,
-	fecha_inicio timestamp NOT NULL,
-	fecha_fin timestamp NOT NULL,
-	lugar varchar(50) NOT NULL,
-	necesita_inscripcion integer NOT NULL,
-	enlace_inscripcion varchar(300) NOT NULL,
-	posee_mayor_info integer NOT NULL,
+	fecha_inicio timestamp NULL,
+	fecha_fin timestamp NULL,
+	lugar varchar(50) NULL,
+	necesita_inscripcion integer NULL,
+	enlace_inscripcion varchar(300) NULL,
+	posee_mayor_info integer NULL,
 	enlace_mayor_info varchar(300) NULL,
-	imagen varchar(300) NOT NULL,
+	imagen varchar(300) NULL,
 	fecha_creacion timestamp NOT NULL, 
 	fecha_modificacion timestamp NULL,
 	usuario_registra varchar(50) NOT NULL
@@ -29,7 +29,7 @@ CREATE TABLE cultura.actividad_grupo_cultural
 (
 	id_actividad_grupo_cultural integer NOT NULL   DEFAULT NEXTVAL(('"actividad_grupo_cultural_id_actividad_grupo_cultural_seq"'::text)::regclass),
 	id_grupo_cultural integer NOT NULL,
-	id_activdad_cultural integer NOT NULL
+	id_actividad_cultural integer NOT NULL
 )
 ;
 
@@ -53,7 +53,8 @@ CREATE TABLE cultura.grupo_cultural
 	necesita_inscripcion integer NOT NULL,
 	enlace_inscripcion varchar(300) NULL,
 	fecha_inicio_inscripcion timestamp NULL,
-	fecha_fin_inscripcion timestamp NULL
+	fecha_fin_inscripcion timestamp NULL,
+	lider_grupo varchar(50) NOT NULL
 )
 ;
 
@@ -78,7 +79,7 @@ ALTER TABLE cultura.actividad_grupo_cultural ADD CONSTRAINT PK_ActividadGrupoCul
 ;
 
 CREATE INDEX IXFK_ActividadGrupoCultural_ActividadCultural 
-ON cultura.actividad_grupo_cultural (id_activdad_cultural ASC)
+ON cultura.actividad_grupo_cultural (id_actividad_cultural ASC)
 ;
 
 CREATE INDEX IXFK_ActividadGrupoCultural_GrupoCultural 
@@ -108,7 +109,7 @@ ON cultura.horarios_grupo_cultural (id_grupo_cultural ASC)
 /* Create Foreign Key Constraints */
 
 ALTER TABLE cultura.actividad_grupo_cultural ADD CONSTRAINT FK_ActividadGrupoCultural_ActividadCultural
-	FOREIGN KEY (id_activdad_cultural) REFERENCES cultura.actividad_cultural (id_actividad_cultural) 
+	FOREIGN KEY (id_actividad_cultural) REFERENCES cultura.actividad_cultural (id_actividad_cultural) 
 	ON DELETE No Action ON UPDATE No Action
 ;
 

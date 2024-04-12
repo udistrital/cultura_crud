@@ -16,14 +16,14 @@ type ActividadCultural struct {
 	Descripcion         string    `orm:"column(descripcion)"`
 	Estado              int       `orm:"column(estado)"`
 	TipoActividad       int       `orm:"column(tipo_actividad)"`
-	FechaInicio         time.Time `orm:"column(fecha_inicio);type(date)"`
-	FechaFin            time.Time `orm:"column(fecha_fin);type(date)"`
-	LugarActividad      string    `orm:"column(lugar_actividad)"`
-	NecesitaInscripcion int       `orm:"column(necesita_inscripcion)"`
-	EnlaceInscripcion   string    `orm:"column(enlace_inscripcion)"`
-	PoseeMayorInfo      int       `orm:"column(posee_mayor_info)"`
+	FechaInicio         time.Time `orm:"column(fecha_inicio);type(date);null"`
+	FechaFin            time.Time `orm:"column(fecha_fin);type(date);null"`
+	Lugar               string    `orm:"column(lugar);null"`
+	NecesitaInscripcion int       `orm:"column(necesita_inscripcion);null"`
+	EnlaceInscripcion   string    `orm:"column(enlace_inscripcion);null"`
+	PoseeMayorInfo      int       `orm:"column(posee_mayor_info);null"`
 	EnlaceMayorInfo     string    `orm:"column(enlace_mayor_info);null"`
-	Imagen              string    `orm:"column(imagen)"`
+	Imagen              string    `orm:"column(imagen);null"`
 	FechaCreacion       time.Time `orm:"column(fecha_creacion);type(date)"`
 	FechaModificacion   time.Time `orm:"column(fecha_modificacion);type(date);null"`
 	UsuarioRegistra     string    `orm:"column(usuario_registra)"`

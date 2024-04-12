@@ -21,6 +21,7 @@ type GrupoCultural struct {
 	EnlaceInscripcion      string    `orm:"column(enlace_inscripcion);null"`
 	FechaInicioInscripcion time.Time `orm:"column(fecha_inicio_inscripcion);type(date);null"`
 	FechaFinInscripcion    time.Time `orm:"column(fecha_fin_inscripcion);type(date);null"`
+	LiderGrupo             string    `orm:"column(lider_grupo)"`
 }
 
 func (t *GrupoCultural) TableName() string {

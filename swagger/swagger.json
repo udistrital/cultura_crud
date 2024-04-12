@@ -922,7 +922,7 @@
                 "Imagen": {
                     "type": "string"
                 },
-                "LugarActividad": {
+                "Lugar": {
                     "type": "string"
                 },
                 "NecesitaInscripcion": {
@@ -953,7 +953,7 @@
                     "type": "integer",
                     "format": "int64"
                 },
-                "IdActivdadCultural": {
+                "IdActividadCultural": {
                     "$ref": "#/definitions/models.ActividadCultural"
                 },
                 "IdGrupoCultural": {
@@ -1011,6 +1011,9 @@
                     "format": "int64"
                 },
                 "Imagen": {
+                    "type": "string"
+                },
+                "LiderGrupo": {
                     "type": "string"
                 },
                 "NecesitaInscripcion": {

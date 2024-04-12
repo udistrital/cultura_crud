@@ -10,9 +10,9 @@ import (
 )
 
 type ActividadGrupoCultural struct {
-	Id                 int                `orm:"column(id_actividad_grupo_cultural);pk;auto"`
-	IdGrupoCultural    *GrupoCultural     `orm:"column(id_grupo_cultural);rel(fk)"`
-	IdActivdadCultural *ActividadCultural `orm:"column(id_activdad_cultural);rel(fk)"`
+	Id                  int                `orm:"column(id_actividad_grupo_cultural);pk;auto"`
+	IdGrupoCultural     *GrupoCultural     `orm:"column(id_grupo_cultural);rel(fk)"`
+	IdActividadCultural *ActividadCultural `orm:"column(id_actividad_cultural);rel(fk)"`
 }
 
 func (t *ActividadGrupoCultural) TableName() string {
