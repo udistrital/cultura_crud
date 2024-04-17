@@ -42,7 +42,7 @@ func init() {
 
 		beego.NSNamespace("/horarios_grupo_cultural",
 			beego.NSInclude(
-				&controllers.HorariosGrupoCulturalController{},
+				&controllers.HorarioGrupoCulturalController{},
 			),
 		),
 	)

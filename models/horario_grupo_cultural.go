@@ -5,51 +5,55 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
+	"time"
 
 	"github.com/astaxie/beego/orm"
 )
 
-type HorariosGrupoCultural struct {
-	Id              int            `orm:"column(id_horario_grupo_cultural);pk;auto"`
-	IdGrupoCultural *GrupoCultural `orm:"column(id_grupo_cultural);rel(fk)"`
-	LugarReunion    string         `orm:"column(lugar_reunion)"`
-	DiaReunion      string         `orm:"column(dia_reunion)"`
-	HoraReunion     string         `orm:"column(hora_reunion)"`
+type HorarioGrupoCultural struct {
+	Id                int            `orm:"column(id);pk;auto"`
+	IdGrupoCultural   *GrupoCultural `orm:"column(grupo_cultural_id);rel(fk)"`
+	LugarReunion      string         `orm:"column(lugar_reunion)"`
+	DiaReunion        string         `orm:"column(dia_reunion)"`
+	HoraReunion       string         `orm:"column(hora_reunion)"`
+	activo            bool           `orm:"column(activo)"`
+	FechaCreacion     time.Time      `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion time.Time      `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 }
 
-func (t *HorariosGrupoCultural) TableName() string {
-	return "horarios_grupo_cultural"
+func (t *HorarioGrupoCultural) TableName() string {
+	return "horario_grupo_cultural"
 }
 
 func init() {
-	orm.RegisterModel(new(HorariosGrupoCultural))
+	orm.RegisterModel(new(HorarioGrupoCultural))
 }
 
-// AddHorariosGrupoCultural insert a new HorariosGrupoCultural into database and returns
+// AddHorarioGrupoCultural insert a new HorarioGrupoCultural into database and returns
 // last inserted Id on success.
-func AddHorariosGrupoCultural(m *HorariosGrupoCultural) (id int64, err error) {
+func AddHorarioGrupoCultural(m *HorarioGrupoCultural) (id int64, err error) {
 	o := orm.NewOrm()
 	id, err = o.Insert(m)
 	return
 }
 
-// GetHorariosGrupoCulturalById retrieves HorariosGrupoCultural by Id. Returns error if
+// GetHorarioGrupoCulturalById retrieves HorarioGrupoCultural by Id. Returns error if
 // Id doesn't exist
-func GetHorariosGrupoCulturalById(id int) (v *HorariosGrupoCultural, err error) {
+func GetHorarioGrupoCulturalById(id int) (v *HorarioGrupoCultural, err error) {
 	o := orm.NewOrm()
-	v = &HorariosGrupoCultural{Id: id}
+	v = &HorarioGrupoCultural{Id: id}
 	if err = o.Read(v); err == nil {
 		return v, nil
 	}
 	return nil, err
 }
 
-// GetAllHorariosGrupoCultural retrieves all HorariosGrupoCultural matches certain condition. Returns empty list if
+// GetAllHorarioGrupoCultural retrieves all HorarioGrupoCultural matches certain condition. Returns empty list if
 // no records exist
-func GetAllHorariosGrupoCultural(query map[string]string, fields []string, sortby []string, order []string,
+func GetAllHorarioGrupoCultural(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(HorariosGrupoCultural)).RelatedSel()
+	qs := o.QueryTable(new(HorarioGrupoCultural)).RelatedSel()
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute
@@ -99,7 +103,7 @@ func GetAllHorariosGrupoCultural(query map[string]string, fields []string, sortb
 		}
 	}
 
-	var l []HorariosGrupoCultural
+	var l []HorarioGrupoCultural
 	qs = qs.OrderBy(sortFields...)
 	if _, err = qs.Limit(limit, offset).All(&l, fields...); err == nil {
 		if len(fields) == 0 {
@@ -122,11 +126,11 @@ func GetAllHorariosGrupoCultural(query map[string]string, fields []string, sortb
 	return nil, err
 }
 
-// UpdateHorariosGrupoCultural updates HorariosGrupoCultural by Id and returns error if
+// UpdateHorarioGrupoCultural updates HorarioGrupoCultural by Id and returns error if
 // the record to be updated doesn't exist
-func UpdateHorariosGrupoCulturalById(m *HorariosGrupoCultural) (err error) {
+func UpdateHorarioGrupoCulturalById(m *HorarioGrupoCultural) (err error) {
 	o := orm.NewOrm()
-	v := HorariosGrupoCultural{Id: m.Id}
+	v := HorarioGrupoCultural{Id: m.Id}
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
@@ -137,15 +141,15 @@ func UpdateHorariosGrupoCulturalById(m *HorariosGrupoCultural) (err error) {
 	return
 }
 
-// DeleteHorariosGrupoCultural deletes HorariosGrupoCultural by Id and returns error if
+// DeleteHorarioGrupoCultural deletes HorarioGrupoCultural by Id and returns error if
 // the record to be deleted doesn't exist
-func DeleteHorariosGrupoCultural(id int) (err error) {
+func DeleteHorarioGrupoCultural(id int) (err error) {
 	o := orm.NewOrm()
-	v := HorariosGrupoCultural{Id: id}
+	v := HorarioGrupoCultural{Id: id}
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
-		if num, err = o.Delete(&HorariosGrupoCultural{Id: id}); err == nil {
+		if num, err = o.Delete(&HorarioGrupoCultural{Id: id}); err == nil {
 			fmt.Println("Number of records deleted in database:", num)
 		}
 	}

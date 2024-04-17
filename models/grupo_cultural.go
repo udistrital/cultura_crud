@@ -11,7 +11,7 @@ import (
 )
 
 type GrupoCultural struct {
-	Id                     int       `orm:"column(id_grupo_cultural);pk;auto"`
+	Id                     int       `orm:"column(id);pk;auto"`
 	Nombre                 string    `orm:"column(nombre)"`
 	Estado                 int       `orm:"column(estado)"`
 	Descripcion            string    `orm:"column(descripcion)"`
@@ -19,9 +19,12 @@ type GrupoCultural struct {
 	Imagen                 string    `orm:"column(imagen)"`
 	NecesitaInscripcion    int       `orm:"column(necesita_inscripcion)"`
 	EnlaceInscripcion      string    `orm:"column(enlace_inscripcion);null"`
-	FechaInicioInscripcion time.Time `orm:"column(fecha_inicio_inscripcion);type(date);null"`
-	FechaFinInscripcion    time.Time `orm:"column(fecha_fin_inscripcion);type(date);null"`
+	FechaInicioInscripcion time.Time `orm:"column(fecha_inicio_inscripcion);type(timestamp without time zone);null"`
+	FechaFinInscripcion    time.Time `orm:"column(fecha_fin_inscripcion);type(timestamp without time zone);null"`
 	LiderGrupo             string    `orm:"column(lider_grupo)"`
+	activo                 bool      `orm:"column(activo)"`
+	FechaCreacion          time.Time `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion      time.Time `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 }
 
 func (t *GrupoCultural) TableName() string {

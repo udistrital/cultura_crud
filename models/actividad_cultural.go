@@ -11,22 +11,23 @@ import (
 )
 
 type ActividadCultural struct {
-	Id                  int       `orm:"column(id_actividad_cultural);pk;auto"`
+	Id                  int       `orm:"column(id);pk;auto"`
 	Nombre              string    `orm:"column(nombre)"`
 	Descripcion         string    `orm:"column(descripcion)"`
 	Estado              int       `orm:"column(estado)"`
 	TipoActividad       int       `orm:"column(tipo_actividad)"`
-	FechaInicio         time.Time `orm:"column(fecha_inicio);type(date);null"`
-	FechaFin            time.Time `orm:"column(fecha_fin);type(date);null"`
+	FechaInicio         time.Time `orm:"column(fecha_inicio);type(timestamp without time zone);null"`
+	FechaFin            time.Time `orm:"column(fecha_fin);type(timestamp without time zone);null"`
 	Lugar               string    `orm:"column(lugar);null"`
 	NecesitaInscripcion int       `orm:"column(necesita_inscripcion);null"`
 	EnlaceInscripcion   string    `orm:"column(enlace_inscripcion);null"`
 	PoseeMayorInfo      int       `orm:"column(posee_mayor_info);null"`
 	EnlaceMayorInfo     string    `orm:"column(enlace_mayor_info);null"`
 	Imagen              string    `orm:"column(imagen);null"`
-	FechaCreacion       time.Time `orm:"column(fecha_creacion);type(date)"`
-	FechaModificacion   time.Time `orm:"column(fecha_modificacion);type(date);null"`
 	UsuarioRegistra     string    `orm:"column(usuario_registra)"`
+	activo              bool      `orm:"column(activo)"`
+	FechaCreacion       time.Time `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion   time.Time `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 }
 
 func (t *ActividadCultural) TableName() string {

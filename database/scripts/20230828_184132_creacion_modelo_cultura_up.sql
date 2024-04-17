@@ -6,141 +6,139 @@ CREATE SCHEMA cultura;
 
 CREATE TABLE cultura.actividad_cultural
 (
-	id_actividad_cultural integer NOT NULL   DEFAULT NEXTVAL(('"actividad_cultural_id_actividad_cultural_seq"'::text)::regclass),
-	nombre varchar(100) NOT NULL,
-	descripcion varchar(300) NOT NULL,
-	estado integer NOT NULL,
-	tipo_actividad integer NOT NULL,
-	fecha_inicio timestamp NULL,
-	fecha_fin timestamp NULL,
-	lugar varchar(50) NULL,
-	necesita_inscripcion integer NULL,
-	enlace_inscripcion varchar(300) NULL,
-	posee_mayor_info integer NULL,
-	enlace_mayor_info varchar(300) NULL,
-	imagen varchar(300) NULL,
-	fecha_creacion timestamp NOT NULL, 
-	fecha_modificacion timestamp NULL,
-	usuario_registra varchar(50) NOT NULL
+	id serial not null,
+	nombre varchar(100) not null,
+	descripcion varchar(300) not null,
+	estado integer not null,
+	tipo_actividad integer not null,
+	fecha_inicio timestamp null,
+	fecha_fin timestamp null,
+	lugar varchar(50) null,
+	necesita_inscripcion integer null,
+	enlace_inscripcion varchar(300) null,
+	posee_mayor_info integer null,
+	enlace_mayor_info varchar(300) null,
+	imagen varchar(300) null,
+	usuario_registra varchar(50) NOT null,
+	activo boolean not null,
+	fecha_creacion timestamp not null, 
+	fecha_modificacion timestamp not null
+	
 )
 ;
 
 CREATE TABLE cultura.actividad_grupo_cultural
 (
-	id_actividad_grupo_cultural integer NOT NULL   DEFAULT NEXTVAL(('"actividad_grupo_cultural_id_actividad_grupo_cultural_seq"'::text)::regclass),
-	id_grupo_cultural integer NOT NULL,
-	id_actividad_cultural integer NOT NULL
+	id serial not null,
+	grupo_cultural_id integer not null,
+	actividad_cultural_id integer not null,
+	activo boolean not null,
+	fecha_creacion timestamp not null, 
+	fecha_modificacion timestamp not null
 )
 ;
 
 CREATE TABLE cultura.evidencia_actividad_cultural
 (
-	id_evidencia_actividad_cultural integer NOT NULL   DEFAULT NEXTVAL(('"evidencia_actividad_cultural_id_evidencia_actividad_cultural_seq"'::text)::regclass),
-	id_actividad_cultural integer NOT NULL,
-	categoria_evidencia integer NOT NULL,
-	contenido_evidencia varchar(300) NOT NULL
+	id serial not null,
+	actividad_cultural_id integer not null,
+	categoria_evidencia integer not null,
+	contenido_evidencia varchar(300) not null,
+	activo boolean not null,
+	fecha_creacion timestamp not null, 
+	fecha_modificacion timestamp not null
 )
 ;
 
 CREATE TABLE cultura.grupo_cultural
 (
-	id_grupo_cultural integer NOT NULL   DEFAULT NEXTVAL(('"grupo_cultural_id_grupo_cultural_seq"'::text)::regclass),
-	nombre varchar(50) NOT NULL,
-	estado integer NOT NULL,
-	descripcion varchar(250) NOT NULL,
-	e_mail varchar(50) NOT NULL,
-	imagen varchar(300) NOT NULL,
-	necesita_inscripcion integer NOT NULL,
-	enlace_inscripcion varchar(300) NULL,
-	fecha_inicio_inscripcion timestamp NULL,
-	fecha_fin_inscripcion timestamp NULL,
-	lider_grupo varchar(50) NOT NULL
+	id serial not null,
+	nombre varchar(50) not null,
+	estado integer not null,
+	descripcion varchar(250) not null,
+	e_mail varchar(50) not null,
+	imagen varchar(300) not null,
+	necesita_inscripcion integer not null,
+	enlace_inscripcion varchar(300) null,
+	fecha_inicio_inscripcion timestamp null,
+	fecha_fin_inscripcion timestamp null,
+	lider_grupo varchar(50) not null,
+	activo boolean not null,
+	fecha_creacion timestamp not null, 
+	fecha_modificacion timestamp not null
 )
 ;
 
-CREATE TABLE cultura.horarios_grupo_cultural
+CREATE TABLE cultura.horario_grupo_cultural
 (
-	id_horario_grupo_cultural integer NOT NULL   DEFAULT NEXTVAL(('"horarios_grupo_cultural_id_horario_grupo_cultural_seq"'::text)::regclass),
-	id_grupo_cultural integer NOT NULL,
-	lugar_reunion varchar(50) NOT NULL,
-	dia_reunion varchar(25) NOT NULL,
-	hora_reunion varchar(10) NOT NULL
+	id serial not null,
+	grupo_cultural_id integer not null,
+	lugar_reunion varchar(50) not null,
+	dia_reunion varchar(25) not null,
+	hora_reunion varchar(10) not null,
+	activo boolean not null,
+	fecha_creacion timestamp not null, 
+	fecha_modificacion timestamp not null
 )
 ;
 
 /* Create Primary Keys, Indexes, Uniques, Checks */
 
-ALTER TABLE cultura.actividad_cultural ADD CONSTRAINT PK_ActividadCultural
-	PRIMARY KEY (id_actividad_cultural)
+ALTER TABLE cultura.actividad_cultural ADD CONSTRAINT pk_actividad_cultural
+	PRIMARY KEY (id)
 ;
 
-ALTER TABLE cultura.actividad_grupo_cultural ADD CONSTRAINT PK_ActividadGrupoCultural
-	PRIMARY KEY (id_actividad_grupo_cultural)
+ALTER TABLE cultura.actividad_grupo_cultural ADD CONSTRAINT pk_actividad_grupo_cultural
+	PRIMARY KEY (id)
 ;
 
-CREATE INDEX IXFK_ActividadGrupoCultural_ActividadCultural 
-ON cultura.actividad_grupo_cultural (id_actividad_cultural ASC)
+ALTER TABLE cultura.evidencia_actividad_cultural ADD CONSTRAINT pk_evidencia_actividad_cultural
+	PRIMARY KEY (id)
 ;
 
-CREATE INDEX IXFK_ActividadGrupoCultural_GrupoCultural 
-ON cultura.actividad_grupo_cultural (id_grupo_cultural ASC)
+ALTER TABLE cultura.grupo_cultural ADD CONSTRAINT pk_grupo_cultural
+	PRIMARY KEY (id)
 ;
 
-ALTER TABLE cultura.evidencia_actividad_cultural ADD CONSTRAINT PK_EvidenciaActividadCultural
-	PRIMARY KEY (id_evidencia_actividad_cultural)
+ALTER TABLE cultura.horario_grupo_cultural ADD CONSTRAINT pk_horario_grupo_cultural
+	PRIMARY KEY (id)
 ;
 
-CREATE INDEX IXFK_EvidenciaActividadCultural_ActividadCultural 
-ON cultura.evidencia_actividad_cultural (id_actividad_cultural ASC)
+CREATE INDEX idx_actividad_grupo_cultural_actividad_cultural_id
+ON cultura.actividad_grupo_cultural (actividad_cultural_id ASC)
 ;
 
-ALTER TABLE cultura.grupo_cultural ADD CONSTRAINT PK_GrupoCultural
-	PRIMARY KEY (Id_grupo_cultural)
+CREATE INDEX idx_actividad_grupo_cultural_grupo_cultural_id
+ON cultura.actividad_grupo_cultural (grupo_cultural_id ASC)
 ;
 
-ALTER TABLE cultura.horarios_grupo_cultural ADD CONSTRAINT PK_HorarioGrupoCultural
-	PRIMARY KEY (id_horario_grupo_cultural)
+
+CREATE INDEX idx_evidencia_actividad_cultural_actividad_cultural_id 
+ON cultura.evidencia_actividad_cultural (actividad_cultural_id ASC)
 ;
 
-CREATE INDEX IXFK_HorarioGrupoCultural_GrupoCultural 
-ON cultura.horarios_grupo_cultural (id_grupo_cultural ASC)
+CREATE INDEX idx_horario_grupo_cultural_grupo_cultural_id
+ON cultura.horario_grupo_cultural (grupo_cultural_id ASC)
 ;
 
 /* Create Foreign Key Constraints */
 
-ALTER TABLE cultura.actividad_grupo_cultural ADD CONSTRAINT FK_ActividadGrupoCultural_ActividadCultural
-	FOREIGN KEY (id_actividad_cultural) REFERENCES cultura.actividad_cultural (id_actividad_cultural) 
+ALTER TABLE cultura.actividad_grupo_cultural ADD CONSTRAINT fk_actividad_grupo_cultural_actividad_cultural
+	FOREIGN KEY (actividad_cultural_id) REFERENCES cultura.actividad_cultural (id) 
 	ON DELETE No Action ON UPDATE No Action
 ;
 
-ALTER TABLE cultura.actividad_grupo_cultural ADD CONSTRAINT FK_ActividadGrupoCultural_GrupoCultural
-	FOREIGN KEY (id_grupo_cultural) REFERENCES cultura.grupo_cultural (Id_grupo_cultural) 
+ALTER TABLE cultura.actividad_grupo_cultural ADD CONSTRAINT fk_actividad_grupo_cultural_grupo_cultural
+	FOREIGN KEY (grupo_cultural_id) REFERENCES cultura.grupo_cultural (id) 
 	ON DELETE No Action ON UPDATE No Action
 ;
 
-ALTER TABLE cultura.evidencia_actividad_cultural ADD CONSTRAINT FK_EvidenciaActividadCultural_ActividadCultural
-	FOREIGN KEY (id_actividad_cultural) REFERENCES cultura.actividad_cultural (id_actividad_cultural) 
+ALTER TABLE cultura.evidencia_actividad_cultural ADD CONSTRAINT fk_evidencia_actividad_cultural_actividad_cultural
+	FOREIGN KEY (actividad_cultural_id) REFERENCES cultura.actividad_cultural (id) 
 	ON DELETE No Action ON UPDATE No Action
 ;
 
-ALTER TABLE cultura.horarios_grupo_cultural ADD CONSTRAINT FK_HorarioGrupoCultural_GrupoCultural
-	FOREIGN KEY (id_grupo_cultural) REFERENCES cultura.grupo_cultural (Id_grupo_cultural) 
+ALTER TABLE cultura.horario_grupo_cultural ADD CONSTRAINT fk_horario_grupo_cultural_grupo_cultural
+	FOREIGN KEY (grupo_cultural_id) REFERENCES cultura.grupo_cultural (id) 
 	ON DELETE No Action ON UPDATE No Action
-;
-
-/* Create Table Comments, Sequences for Autonumber Columns */
-
-CREATE SEQUENCE cultura.actividad_cultural_id_actividad_cultural_seq INCREMENT 1 START 1
-;
-
-CREATE SEQUENCE cultura.actividad_grupo_cultural_id_actividad_grupo_cultural_seq INCREMENT 1 START 1
-;
-
-CREATE SEQUENCE cultura.evidencia_actividad_cultural_id_evidencia_actividad_cultural_seq INCREMENT 1 START 1
-;
-
-CREATE SEQUENCE cultura.grupo_cultural_id_grupo_cultural_seq INCREMENT 1 START 1
-;
-
-CREATE SEQUENCE cultura.horarios_grupo_cultural_id_horario_grupo_cultural_seq INCREMENT 1 START 1
 ;

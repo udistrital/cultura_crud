@@ -13,13 +13,13 @@ import (
 	"github.com/astaxie/beego/logs"
 )
 
-// HorariosGrupoCulturalController operations for HorariosGrupoCultural
-type HorariosGrupoCulturalController struct {
+// HorarioGrupoCulturalController operations for HorarioGrupoCultural
+type HorarioGrupoCulturalController struct {
 	beego.Controller
 }
 
 // URLMapping ...
-func (c *HorariosGrupoCulturalController) URLMapping() {
+func (c *HorarioGrupoCulturalController) URLMapping() {
 	c.Mapping("Post", c.Post)
 	c.Mapping("GetOne", c.GetOne)
 	c.Mapping("GetAll", c.GetAll)
@@ -29,15 +29,15 @@ func (c *HorariosGrupoCulturalController) URLMapping() {
 
 // Post ...
 // @Title Post
-// @Description create HorariosGrupoCultural
-// @Param	body		body 	models.HorariosGrupoCultural	true		"body for HorariosGrupoCultural content"
-// @Success 201 {int} models.HorariosGrupoCultural
+// @Description create HorarioGrupoCultural
+// @Param	body		body 	models.HorarioGrupoCultural	true		"body for HorarioGrupoCultural content"
+// @Success 201 {int} models.HorarioGrupoCultural
 // @Failure 400 the request contains incorrect syntax
 // @router / [post]
-func (c *HorariosGrupoCulturalController) Post() {
-	var v models.HorariosGrupoCultural
+func (c *HorarioGrupoCulturalController) Post() {
+	var v models.HorarioGrupoCultural
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
-		if _, err := models.AddHorariosGrupoCultural(&v); err == nil {
+		if _, err := models.AddHorarioGrupoCultural(&v); err == nil {
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = map[string]interface{}{"Success": true, "Status": "201", "Message": "Registration successful", "Data": v}
 		} else {
@@ -55,15 +55,15 @@ func (c *HorariosGrupoCulturalController) Post() {
 
 // GetOne ...
 // @Title Get One
-// @Description get HorariosGrupoCultural by id
+// @Description get HorarioGrupoCultural by id
 // @Param	id		path 	string	true		"The key for staticblock"
-// @Success 200 {object} models.HorariosGrupoCultural
+// @Success 200 {object} models.HorarioGrupoCultural
 // @Failure 404 not found resource
 // @router /:id [get]
-func (c *HorariosGrupoCulturalController) GetOne() {
+func (c *HorarioGrupoCulturalController) GetOne() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
-	v, err := models.GetHorariosGrupoCulturalById(id)
+	v, err := models.GetHorarioGrupoCulturalById(id)
 	if err != nil {
 		logs.Error(err)
 		c.Data["mesaage"] = "Error service GetOne: The request contains an incorrect parameter or no record exists"
@@ -76,17 +76,17 @@ func (c *HorariosGrupoCulturalController) GetOne() {
 
 // GetAll ...
 // @Title Get All
-// @Description get HorariosGrupoCultural
+// @Description get HorarioGrupoCultural
 // @Param	query	query	string	false	"Filter. e.g. col1:v1,col2:v2 ..."
 // @Param	fields	query	string	false	"Fields returned. e.g. col1,col2 ..."
 // @Param	sortby	query	string	false	"Sorted-by fields. e.g. col1,col2 ..."
 // @Param	order	query	string	false	"Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ..."
 // @Param	limit	query	string	false	"Limit the size of result set. Must be an integer"
 // @Param	offset	query	string	false	"Start position of result set. Must be an integer"
-// @Success 200 {object} models.HorariosGrupoCultural
+// @Success 200 {object} models.HorarioGrupoCultural
 // @Failure 404 not found resource
 // @router / [get]
-func (c *HorariosGrupoCulturalController) GetAll() {
+func (c *HorarioGrupoCulturalController) GetAll() {
 	var fields []string
 	var sortby []string
 	var order []string
@@ -128,7 +128,7 @@ func (c *HorariosGrupoCulturalController) GetAll() {
 		}
 	}
 
-	l, err := models.GetAllHorariosGrupoCultural(query, fields, sortby, order, offset, limit)
+	l, err := models.GetAllHorarioGrupoCultural(query, fields, sortby, order, offset, limit)
 	if err != nil {
 		logs.Error(err)
 		c.Data["mesaage"] = "Error service GetAll: The request contains an incorrect parameter or no record exists"
@@ -144,18 +144,18 @@ func (c *HorariosGrupoCulturalController) GetAll() {
 
 // Put ...
 // @Title Put
-// @Description update the HorariosGrupoCultural
+// @Description update the HorarioGrupoCultural
 // @Param	id		path 	string	true		"The id you want to update"
-// @Param	body		body 	models.HorariosGrupoCultural	true		"body for HorariosGrupoCultural content"
-// @Success 200 {object} models.HorariosGrupoCultural
+// @Param	body		body 	models.HorarioGrupoCultural	true		"body for HorarioGrupoCultural content"
+// @Success 200 {object} models.HorarioGrupoCultural
 // @Failure 400 the request contains incorrect syntax
 // @router /:id [put]
-func (c *HorariosGrupoCulturalController) Put() {
+func (c *HorarioGrupoCulturalController) Put() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
-	v := models.HorariosGrupoCultural{Id: id}
+	v := models.HorarioGrupoCultural{Id: id}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
-		if err := models.UpdateHorariosGrupoCulturalById(&v); err == nil {
+		if err := models.UpdateHorarioGrupoCulturalById(&v); err == nil {
 			c.Data["json"] = map[string]interface{}{"Success": true, "Status": "200", "Message": "Update successful", "Data": v}
 		} else {
 			logs.Error(err)
@@ -172,15 +172,15 @@ func (c *HorariosGrupoCulturalController) Put() {
 
 // Delete ...
 // @Title Delete
-// @Description delete the HorariosGrupoCultural
+// @Description delete the HorarioGrupoCultural
 // @Param	id		path 	string	true		"The id you want to delete"
 // @Success 200 {string} delete success!
 // @Failure 404 not found resource
 // @router /:id [delete]
-func (c *HorariosGrupoCulturalController) Delete() {
+func (c *HorarioGrupoCulturalController) Delete() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
-	if err := models.DeleteHorariosGrupoCultural(id); err == nil {
+	if err := models.DeleteHorarioGrupoCultural(id); err == nil {
 		d := map[string]interface{}{"Id": id}
 		c.Data["json"] = map[string]interface{}{"Success": true, "Status": "200", "Message": "Delete successful", "Data": d}
 	} else {

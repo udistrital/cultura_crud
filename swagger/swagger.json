@@ -707,13 +707,13 @@
                 }
             }
         },
-        "/horarios_grupo_cultural/": {
+        "/horario_grupo_cultural/": {
             "get": {
                 "tags": [
-                    "horarios_grupo_cultural"
+                    "horario_grupo_cultural"
                 ],
-                "description": "get HorariosGrupoCultural",
-                "operationId": "HorariosGrupoCulturalController.Get All",
+                "description": "get HorarioGrupoCultural",
+                "operationId": "HorarioGrupoCulturalController.Get All",
                 "parameters": [
                     {
                         "in": "query",
@@ -756,7 +756,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "$ref": "#/definitions/models.HorariosGrupoCultural"
+                            "$ref": "#/definitions/models.HorarioGrupoCultural"
                         }
                     },
                     "404": {
@@ -766,24 +766,24 @@
             },
             "post": {
                 "tags": [
-                    "horarios_grupo_cultural"
+                    "horario_grupo_cultural"
                 ],
-                "description": "create HorariosGrupoCultural",
-                "operationId": "HorariosGrupoCulturalController.Post",
+                "description": "create HorarioGrupoCultural",
+                "operationId": "HorarioGrupoCulturalController.Post",
                 "parameters": [
                     {
                         "in": "body",
                         "name": "body",
-                        "description": "body for HorariosGrupoCultural content",
+                        "description": "body for HorarioGrupoCultural content",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/models.HorariosGrupoCultural"
+                            "$ref": "#/definitions/models.HorarioGrupoCultural"
                         }
                     }
                 ],
                 "responses": {
                     "201": {
-                        "description": "{int} models.HorariosGrupoCultural"
+                        "description": "{int} models.HorarioGrupoCultural"
                     },
                     "400": {
                         "description": "the request contains incorrect syntax"
@@ -791,13 +791,13 @@
                 }
             }
         },
-        "/horarios_grupo_cultural/{id}": {
+        "/horario_grupo_cultural/{id}": {
             "get": {
                 "tags": [
-                    "horarios_grupo_cultural"
+                    "horario_grupo_cultural"
                 ],
-                "description": "get HorariosGrupoCultural by id",
-                "operationId": "HorariosGrupoCulturalController.Get One",
+                "description": "get HorarioGrupoCultural by id",
+                "operationId": "HorarioGrupoCulturalController.Get One",
                 "parameters": [
                     {
                         "in": "path",
@@ -811,7 +811,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "$ref": "#/definitions/models.HorariosGrupoCultural"
+                            "$ref": "#/definitions/models.HorarioGrupoCultural"
                         }
                     },
                     "404": {
@@ -821,10 +821,10 @@
             },
             "put": {
                 "tags": [
-                    "horarios_grupo_cultural"
+                    "horario_grupo_cultural"
                 ],
-                "description": "update the HorariosGrupoCultural",
-                "operationId": "HorariosGrupoCulturalController.Put",
+                "description": "update the HorarioGrupoCultural",
+                "operationId": "HorarioGrupoCulturalController.Put",
                 "parameters": [
                     {
                         "in": "path",
@@ -836,10 +836,10 @@
                     {
                         "in": "body",
                         "name": "body",
-                        "description": "body for HorariosGrupoCultural content",
+                        "description": "body for HorarioGrupoCultural content",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/models.HorariosGrupoCultural"
+                            "$ref": "#/definitions/models.HorarioGrupoCultural"
                         }
                     }
                 ],
@@ -847,7 +847,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "$ref": "#/definitions/models.HorariosGrupoCultural"
+                            "$ref": "#/definitions/models.HorarioGrupoCultural"
                         }
                     },
                     "400": {
@@ -857,10 +857,10 @@
             },
             "delete": {
                 "tags": [
-                    "horarios_grupo_cultural"
+                    "horario_grupo_cultural"
                 ],
-                "description": "delete the HorariosGrupoCultural",
-                "operationId": "HorariosGrupoCulturalController.Delete",
+                "description": "delete the HorarioGrupoCultural",
+                "operationId": "HorarioGrupoCulturalController.Delete",
                 "parameters": [
                     {
                         "in": "path",
@@ -886,6 +886,9 @@
             "title": "ActividadCultural",
             "type": "object",
             "properties": {
+                "Activo": {
+                    "type": "boolean"
+                },
                 "Descripcion": {
                     "type": "string"
                 },
@@ -940,7 +943,7 @@
                     "type": "integer",
                     "format": "int64"
                 },
-                "UsuarioRegistra": {
+                "": {
                     "type": "string"
                 }
             }
@@ -949,6 +952,17 @@
             "title": "ActividadGrupoCultural",
             "type": "object",
             "properties": {
+                "Activo": {
+                    "type": "boolean"
+                },
+                "FechaCreacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "FechaModificacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
                 "Id": {
                     "type": "integer",
                     "format": "int64"
@@ -965,12 +979,23 @@
             "title": "EvidenciaActividadCultural",
             "type": "object",
             "properties": {
+                "Activo": {
+                    "type": "boolean"
+                },
                 "CategoriaEvidencia": {
                     "type": "integer",
                     "format": "int64"
                 },
                 "ContenidoEvidencia": {
                     "type": "string"
+                },
+                "FechaCreacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "FechaModificacion": {
+                    "type": "string",
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
@@ -985,6 +1010,9 @@
             "title": "GrupoCultural",
             "type": "object",
             "properties": {
+                "Activo": {
+                    "type": "boolean"
+                },
                 "Descripcion": {
                     "type": "string"
                 },
@@ -998,11 +1026,19 @@
                     "type": "integer",
                     "format": "int64"
                 },
+                "FechaCreacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
                 "FechaFinInscripcion": {
                     "type": "string",
                     "format": "datetime"
                 },
                 "FechaInicioInscripcion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "FechaModificacion": {
                     "type": "string",
                     "format": "datetime"
                 },
@@ -1025,15 +1061,26 @@
                 }
             }
         },
-        "models.HorariosGrupoCultural": {
-            "title": "HorariosGrupoCultural",
+        "models.HorarioGrupoCultural": {
+            "title": "HorarioGrupoCultural",
             "type": "object",
             "properties": {
+                "Activo": {
+                    "type": "boolean"
+                },
                 "DiaReunion": {
                     "type": "string"
                 },
                 "HoraReunion": {
                     "type": "string"
+                },
+                "FechaCreacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "FechaModificacion": {
+                    "type": "string",
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
@@ -1066,8 +1113,8 @@
             "description": "EvidenciaActividadCulturalController operations for EvidenciaActividadCultural\n"
         },
         {
-            "name": "horarios_grupo_cultural",
-            "description": "HorariosGrupoCulturalController operations for HorariosGrupoCultural\n"
+            "name": "horario_grupo_cultural",
+            "description": "HorarioGrupoCulturalController operations for HorarioGrupoCultural\n"
         }
     ]
 }

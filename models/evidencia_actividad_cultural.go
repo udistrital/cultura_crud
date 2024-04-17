@@ -5,15 +5,19 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
+	"time"
 
 	"github.com/astaxie/beego/orm"
 )
 
 type EvidenciaActividadCultural struct {
-	Id                  int                `orm:"column(id_evidencia_actividad_cultural);pk;auto"`
-	IdActividadCultural *ActividadCultural `orm:"column(id_actividad_cultural);rel(fk)"`
+	Id                  int                `orm:"column(id);pk;auto"`
+	IdActividadCultural *ActividadCultural `orm:"column(actividad_cultural_id);rel(fk)"`
 	CategoriaEvidencia  int                `orm:"column(categoria_evidencia)"`
 	ContenidoEvidencia  string             `orm:"column(contenido_evidencia)"`
+	activo              bool               `orm:"column(activo)"`
+	FechaCreacion       time.Time          `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion   time.Time          `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 }
 
 func (t *EvidenciaActividadCultural) TableName() string {
