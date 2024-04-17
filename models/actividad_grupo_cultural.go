@@ -14,7 +14,7 @@ type ActividadGrupoCultural struct {
 	Id                  int                `orm:"column(id);pk;auto"`
 	IdGrupoCultural     *GrupoCultural     `orm:"column(grupo_cultural_id);rel(fk)"`
 	IdActividadCultural *ActividadCultural `orm:"column(actividad_cultural_id);rel(fk)"`
-	activo              bool               `orm:"column(activo)"`
+	Activo              bool               `orm:"column(activo)"`
 	FechaCreacion       time.Time          `orm:"column(fecha_creacion);type(timestamp without time zone)"`
 	FechaModificacion   time.Time          `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 }

@@ -16,7 +16,7 @@ type HorarioGrupoCultural struct {
 	LugarReunion      string         `orm:"column(lugar_reunion)"`
 	DiaReunion        string         `orm:"column(dia_reunion)"`
 	HoraReunion       string         `orm:"column(hora_reunion)"`
-	activo            bool           `orm:"column(activo)"`
+	Activo            bool           `orm:"column(activo)"`
 	FechaCreacion     time.Time      `orm:"column(fecha_creacion);type(timestamp without time zone)"`
 	FechaModificacion time.Time      `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 }

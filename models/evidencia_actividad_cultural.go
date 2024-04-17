@@ -15,7 +15,7 @@ type EvidenciaActividadCultural struct {
 	IdActividadCultural *ActividadCultural `orm:"column(actividad_cultural_id);rel(fk)"`
 	CategoriaEvidencia  int                `orm:"column(categoria_evidencia)"`
 	ContenidoEvidencia  string             `orm:"column(contenido_evidencia)"`
-	activo              bool               `orm:"column(activo)"`
+	Activo              bool               `orm:"column(activo)"`
 	FechaCreacion       time.Time          `orm:"column(fecha_creacion);type(timestamp without time zone)"`
 	FechaModificacion   time.Time          `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 }

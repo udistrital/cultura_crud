@@ -25,7 +25,7 @@ type ActividadCultural struct {
 	EnlaceMayorInfo     string    `orm:"column(enlace_mayor_info);null"`
 	Imagen              string    `orm:"column(imagen);null"`
 	UsuarioRegistra     string    `orm:"column(usuario_registra)"`
-	activo              bool      `orm:"column(activo)"`
+	Activo              bool      `orm:"column(activo)"`
 	FechaCreacion       time.Time `orm:"column(fecha_creacion);type(timestamp without time zone)"`
 	FechaModificacion   time.Time `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 }

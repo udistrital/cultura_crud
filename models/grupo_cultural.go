@@ -22,7 +22,7 @@ type GrupoCultural struct {
 	FechaInicioInscripcion time.Time `orm:"column(fecha_inicio_inscripcion);type(timestamp without time zone);null"`
 	FechaFinInscripcion    time.Time `orm:"column(fecha_fin_inscripcion);type(timestamp without time zone);null"`
 	LiderGrupo             string    `orm:"column(lider_grupo)"`
-	activo                 bool      `orm:"column(activo)"`
+	Activo                 bool      `orm:"column(activo)"`
 	FechaCreacion          time.Time `orm:"column(fecha_creacion);type(timestamp without time zone)"`
 	FechaModificacion      time.Time `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 }
