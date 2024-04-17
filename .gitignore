@@ -2,6 +2,8 @@ lastupdate.tmp
 .vscode/
 cultura_crud
 main
+go.mod
+go.sum
 .scannerwork/
 swagger/*.png
 swagger/*.html
