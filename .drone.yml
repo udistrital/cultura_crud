@@ -63,7 +63,7 @@ steps:
     - master
     event:
     - push
-name: beego_migrate
+- name: beego_migrate
   image: golang:1.18
   environment:
     PG_MIGRATION_USER:
